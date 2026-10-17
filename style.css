@@ -1,89 +1,297 @@
+/*
+  Progress Over Passion — legal pages.
+  Colors are the app's Arcade colorway (popfitness/DesignSystem/Palettes.swift):
+  volt does the job pfPrimary does in the app, violet and cyan support it.
+  Volt is never used as text on a light ground; it fills, highlights, or sits on ink.
+*/
+
 :root {
-  --bg: #ffffff;
-  --surface: #f6f7f9;
-  --text: #16181d;
-  --muted: #5b6270;
-  --rule: #e3e6ec;
-  --accent: #1f6feb;
-  --flag-bg: #fff4e5;
-  --flag-border: #f0b429;
-  --flag-text: #6b4a05;
+  --ink: #14121f;
+  --ink-raised: #201d30;
+  --on-ink: #f4f2ff;
+  --on-ink-muted: #b4aed0;
+  --volt: #fff232;
+  --violet: #9b7bff;
+  --cyan: #22d3ee;
+
+  --bg: #f6f4ff;
+  --surface: #ffffff;
+  --text: #14121f;
+  --muted: #565170;
+  --rule: #dcd7f0;
+  --link: #5b3fd6;
+  --num: #5b3fd6;
+  --mark: var(--volt);
+  --on-mark: var(--ink);
+
+  --display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --rail-h: 2.75rem;
+  color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1115;
-    --surface: #171a21;
-    --text: #e7e9ee;
-    --muted: #9aa2b1;
-    --rule: #262a33;
-    --accent: #6aa4ff;
-    --flag-bg: #2a2110;
-    --flag-border: #8a6a1f;
-    --flag-text: #f0d69a;
+    --bg: #1a1727;
+    --surface: #221f33;
+    --text: #f4f2ff;
+    --muted: #b4aed0;
+    --rule: #34304a;
+    --link: #c3b2ff;
+    --num: #9b7bff;
+    color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg: #1a1727;
+  --surface: #221f33;
+  --text: #f4f2ff;
+  --muted: #b4aed0;
+  --rule: #34304a;
+  --link: #c3b2ff;
+  --num: #9b7bff;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
 body {
   margin: 0;
-  padding: 3rem 1.25rem 5rem;
   background: var(--bg);
   color: var(--text);
-  font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  -webkit-text-size-adjust: 100%;
+  font: 400 1.0625rem/1.65 var(--body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.page, .home-main { flex: 1 0 auto; width: 100%; }
+
+a { color: var(--link); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--cyan); outline-offset: 3px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 1rem; top: -4rem; z-index: 20;
+  background: var(--volt); color: var(--ink); padding: 0.5rem 0.9rem; font-weight: 600;
+}
+.skip:focus { top: 1rem; }
+
+/* ---------- Masthead ---------- */
+
+.masthead { background: var(--ink); color: var(--on-ink); }
+
+.topbar {
+  max-width: 72rem; margin: 0 auto; padding: 1.1rem 1rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
 }
 
-main { max-width: 46rem; margin: 0 auto; }
+.wordmark {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  color: var(--on-ink); text-decoration: none;
+  font: 900 1.45rem/1 var(--display); letter-spacing: 0.01em;
+}
+.wordmark .plate {
+  display: grid; place-items: center;
+  width: 2rem; height: 2rem; border-radius: 50%;
+  background: var(--volt); color: var(--ink);
+  font-size: 0.95rem; letter-spacing: -0.02em;
+}
 
-.brand {
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
+.topbar nav { display: flex; gap: 1.25rem; font-size: 0.95rem; }
+.topbar nav a { color: var(--on-ink-muted); text-decoration: none; padding: 0.25rem 0; }
+.topbar nav a:hover { color: var(--on-ink); }
+.topbar nav a[aria-current="page"] { color: var(--on-ink); box-shadow: inset 0 -2px 0 var(--volt); }
+
+.hero { max-width: 72rem; margin: 0 auto; padding: 2.5rem 1rem 3rem; }
+
+.hero h1 {
+  margin: 0;
+  font: 900 clamp(4.25rem, 17vw, 10.5rem)/0.82 var(--display);
   text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 0.5rem;
+  letter-spacing: -0.01em;
+  color: var(--volt);
+}
+.hero h1 span { display: block; }
+
+.hero .summary {
+  max-width: 34rem; margin: 1.6rem 0 0;
+  font-size: 1.15rem; line-height: 1.5; color: var(--on-ink);
+}
+.hero .updated { margin: 0.6rem 0 0; font-size: 0.95rem; color: var(--on-ink-muted); }
+
+/* ---------- Progress rail: one tick per section ---------- */
+
+.rail {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--ink);
+  border-top: 1px solid var(--ink-raised);
+}
+.rail-inner {
+  max-width: 72rem; margin: 0 auto; padding: 0 1rem;
+  height: var(--rail-h);
+  display: flex; align-items: center; gap: 1rem;
+}
+.rail ol {
+  flex: 1; display: flex; gap: 3px; align-items: center;
+  height: 100%; margin: 0; padding: 0; list-style: none;
+}
+.rail li { flex: 1; height: 100%; }
+.rail ol a {
+  display: flex; align-items: center; height: 100%;
+}
+.rail ol a::before {
+  content: ""; display: block; width: 100%; height: 0.5rem;
+  border-radius: 1px;
+  background: var(--ink-raised);
+  transition: height 160ms ease, background-color 160ms ease;
+}
+.rail ol a:hover::before { background: var(--violet); }
+.rail ol a.done::before { background: var(--volt); }
+.rail ol a[aria-current]::before { background: var(--volt); height: 1.15rem; }
+
+.rail .count {
+  flex: none; min-width: 4.5rem; text-align: right;
+  font: 700 1.05rem/1 var(--display); letter-spacing: 0.02em;
+  color: var(--on-ink-muted);
+  font-variant-numeric: tabular-nums;
+}
+.rail .count b { color: var(--on-ink); font-weight: 900; }
+
+/* The one orchestrated moment: the ticks load like a rep counter. */
+@media (prefers-reduced-motion: no-preference) {
+  .rail ol a::before { animation: load 420ms cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 45ms + 150ms); }
+  @keyframes load { from { transform: scaleY(0); background: var(--volt); } 60% { background: var(--volt); } }
 }
 
-h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); line-height: 1.2; margin: 0 0 0.4rem; letter-spacing: -0.02em; }
-h2 { font-size: 1.2rem; margin: 2.5rem 0 0.6rem; letter-spacing: -0.01em; }
-h3 { font-size: 1rem; margin: 1.6rem 0 0.4rem; }
+/* ---------- Page layout ---------- */
 
-.updated { color: var(--muted); font-size: 0.9rem; margin: 0 0 2rem; }
+.page {
+  max-width: 72rem; margin: 0 auto; padding: 3rem 1rem 5rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); gap: 3rem;
+}
+@media (min-width: 64rem) {
+  .page { grid-template-columns: 15rem minmax(0, 42rem); gap: 5rem; }
+}
 
-p, li { color: var(--text); }
-ul { padding-left: 1.25rem; }
-li { margin: 0.35rem 0; }
+.toc { display: none; }
+@media (min-width: 64rem) {
+  .toc { display: block; position: sticky; top: calc(var(--rail-h) + 2rem); align-self: start; }
+}
+.toc h2 { margin: 0 0 0.75rem; font: 700 1.25rem/1.1 var(--display); color: var(--muted); }
+.toc ol { margin: 0; padding: 0; list-style: none; font-size: 0.9rem; line-height: 1.35; }
+.toc li { margin: 0; }
+.toc a {
+  display: grid; grid-template-columns: 1.6rem 1fr; gap: 0.25rem;
+  padding: 0.4rem 0.5rem; margin-left: -0.5rem;
+  color: var(--muted); text-decoration: none; border-radius: 3px;
+}
+.toc a span:first-child { font: 700 1rem/1.3 var(--display); font-variant-numeric: tabular-nums; }
+.toc a:hover { color: var(--text); }
+.toc a[aria-current] { background: var(--mark); color: var(--on-mark); }
 
-a { color: var(--accent); }
+/* ---------- Document ---------- */
 
-hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+.doc { max-width: 42rem; }
 
+.doc section { scroll-margin-top: calc(var(--rail-h) + 1.5rem); }
+.doc section + section { margin-top: 3.25rem; }
+
+.doc h2 {
+  display: flex; align-items: baseline; gap: 0.85rem;
+  margin: 0 0 1rem;
+  font: 800 clamp(1.75rem, 4.5vw, 2.25rem)/1.05 var(--display);
+  letter-spacing: 0.005em;
+}
+.doc h2 .num {
+  flex: none; min-width: 1.6ch;
+  font-weight: 900; font-size: 1.35em; line-height: 0.8;
+  color: var(--num);
+  font-variant-numeric: tabular-nums;
+}
+.doc h2 em { font-style: normal; box-shadow: inset 0 -0.28em 0 var(--mark); color: var(--text); }
+
+.doc h3 { margin: 2rem 0 0.5rem; font: 700 1.4rem/1.2 var(--display); }
+
+.doc p { margin: 0 0 1rem; }
+.doc ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+.doc li { margin: 0.4rem 0; padding-left: 0.25rem; }
+.doc li::marker { color: var(--num); }
+.doc strong { font-weight: 600; }
+
+/* "The short version" — the summary that opens each policy */
 .lead {
+  margin: 0 0 3.25rem; padding: 1.4rem 1.5rem;
   background: var(--surface);
   border: 1px solid var(--rule);
-  border-radius: 0.6rem;
-  padding: 1rem 1.15rem;
-  margin: 0 0 2rem;
+  border-left: 0.4rem solid var(--cyan);
+  border-radius: 4px;
 }
-.lead p { margin: 0.4rem 0; }
-.lead p:first-child { margin-top: 0; }
+.lead h2 { margin: 0 0 0.6rem; font: 800 1.6rem/1.1 var(--display); display: block; }
+.lead p { margin: 0 0 0.7rem; }
 .lead p:last-child { margin-bottom: 0; }
 
+/* The safety notice gets gym-floor hazard tape. */
 .flag {
-  background: var(--flag-bg);
-  border: 1px solid var(--flag-border);
-  color: var(--flag-text);
-  border-radius: 0.6rem;
-  padding: 0.85rem 1.1rem;
-  margin: 1.5rem 0;
-  font-size: 0.93rem;
+  position: relative;
+  margin: 2rem 0; padding: 2rem 1.5rem 1.5rem;
+  background: var(--ink); color: var(--on-ink);
+  border: 1px solid var(--rule);
+  border-radius: 4px; overflow: hidden;
+  font-size: 1rem;
 }
+.flag::before {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 0.65rem;
+  background: repeating-linear-gradient(-45deg, var(--volt) 0 0.7rem, var(--ink) 0.7rem 1.4rem);
+}
+.flag h3 { margin: 0 0 0.6rem; font: 900 1.6rem/1.05 var(--display); color: var(--volt); text-transform: uppercase; }
+.flag p { margin: 0 0 0.8rem; }
+.flag p:last-child { margin-bottom: 0; }
+.flag strong { color: var(--volt); font-weight: 600; }
+.flag a { color: var(--volt); }
 
-table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
-th, td { text-align: left; padding: 0.6rem 0.5rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
-th { font-weight: 600; color: var(--muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
-.table-wrap { overflow-x: auto; }
+.table-wrap { overflow-x: auto; margin: 1.25rem 0; }
+table { width: 100%; border-collapse: collapse; font-size: 0.97rem; }
+th, td { text-align: left; padding: 0.75rem 0.75rem 0.75rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font: 700 1.05rem/1.2 var(--display); color: var(--muted); border-bottom: 2px solid var(--text); }
+td:first-child { white-space: nowrap; padding-right: 1.5rem; }
 
-footer { margin-top: 3.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
-footer a { color: var(--muted); }
+/* ---------- Footer ---------- */
+
+.footer { background: var(--ink); color: var(--on-ink-muted); }
+.footer-inner {
+  max-width: 72rem; margin: 0 auto; padding: 2.5rem 1rem;
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 1rem 2rem;
+  font-size: 0.95rem;
+}
+.footer .motto { margin: 0; font: 900 1.6rem/1 var(--display); text-transform: uppercase; color: var(--on-ink); }
+.footer nav { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.footer a { color: var(--on-ink); }
+.footer p { margin: 0; }
+
+/* ---------- Home page ---------- */
+
+.home .hero { padding-bottom: 4rem; }
+.home .hero h1 { font-size: clamp(3.6rem, 14.5vw, 9.5rem); }
+
+.home-main { max-width: 72rem; margin: 0 auto; padding: 3.5rem 1rem 5rem; }
+.home-main .intro { max-width: 40rem; margin: 0 0 3.5rem; font-size: 1.25rem; line-height: 1.55; }
+
+.doors { display: grid; gap: 1rem; margin: 0 0 3.5rem; }
+@media (min-width: 44rem) { .doors { grid-template-columns: 1fr 1fr; } }
+.door {
+  display: block; padding: 1.5rem 1.5rem 1.4rem;
+  background: var(--surface); color: var(--text); text-decoration: none;
+  border: 1px solid var(--rule); border-bottom: 0.4rem solid var(--violet);
+  border-radius: 4px;
+}
+.door:hover { border-bottom-color: var(--volt); }
+.door strong { display: block; font: 900 2.4rem/1 var(--display); text-transform: uppercase; }
+.door span { display: block; margin-top: 0.5rem; color: var(--muted); font-size: 0.97rem; }
+
+.facts { display: grid; gap: 2rem; max-width: 56rem; }
+@media (min-width: 44rem) { .facts { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+.facts h2 { margin: 0 0 0.5rem; font: 800 1.6rem/1.1 var(--display); }
+.facts p { margin: 0; }
