@@ -25,7 +25,7 @@
   <div class="hero">
     <h1><span>Privacy</span><span>Policy</span></h1>
     <p class="summary">What the app stores, who can see it, and how to delete it.</p>
-    <p class="updated">Last updated 23 September 2026</p>
+    <p class="updated">Last updated 28 October 2026</p>
   </div>
 </header>
 
@@ -101,7 +101,8 @@
         <li>Date of birth, sex, and height</li>
         <li>Body weight readings over time, and a goal weight</li>
         <li>Workouts &mdash; exercises, sets, reps, and loads, both planned and completed</li>
-        <li>Nutrition entries, including calories and macronutrients</li>
+        <li>Nutrition entries, including calories and macronutrients, any micronutrients (such as fiber or sodium) you record, and where the numbers came from (typed in, or read from a photo)</li>
+          <li>Daily nutrition targets, if your coach sets them for you</li>
         <li>Training preferences, such as a weekly exercise goal and preferred training days</li>
         <li>Activity streaks and experience points, which the app derives from the above</li>
       </ul>
@@ -109,7 +110,7 @@
       <h3>Photos</h3>
       <ul>
         <li><strong>Progress photos</strong> you choose to upload</li>
-        <li><strong>Meal photos</strong>, if you use the feature that estimates nutrition from a photo</li>
+        <li><strong>Nutrition photos</strong> &mdash; a screenshot from another tracking app, a nutrition label, or a meal &mdash; if you use the feature that reads nutrition from a photo. These are analyzed and then discarded; we do not store them.</li>
       </ul>
 
       <h3>Other content and technical data</h3>
@@ -157,14 +158,15 @@
         <tbody>
           <tr><td><strong>Supabase</strong></td><td>Account authentication, the database holding your logged data, and encrypted storage for your photos</td></tr>
           <tr><td><strong>Google Cloud</strong></td><td>Hosting for the app&rsquo;s API. If a coach connects their Google Calendar, we read that calendar to display it in the app.</td></tr>
-          <tr><td><strong>Anthropic</strong></td><td>Meal-photo analysis only &mdash; see below</td></tr>
+          <tr><td><strong>Anthropic</strong></td><td>Reading nutrition from photos you choose to analyze &mdash; see below</td></tr>
           <tr><td><strong>Apple</strong></td><td>App distribution through the App Store and TestFlight</td></tr>
         </tbody>
       </table>
       </div>
 
-      <h3>Meal-photo analysis</h3>
-      <p>If you photograph a meal to estimate its nutrition, that image is sent to Anthropic&rsquo;s API, which returns estimated calories and macronutrients. This happens <strong>only when you use that feature</strong>. Your other photos, including progress photos, are never sent there. Anthropic does not use data submitted through its API to train its models.</p>
+      <h3>Nutrition-photo analysis</h3>
+      <p>If you choose photos to read nutrition from &mdash; up to three at a time, such as screenshots of your day in another tracking app, a nutrition label, or a meal &mdash; those images are sent to Anthropic&rsquo;s API. It returns calories and macronutrients and, when a tracking app&rsquo;s screenshot shows them, micronutrients such as fiber, sodium, or iron. For a meal photo the numbers are an estimate. You review the result before anything is saved, and the photos themselves are discarded once analyzed; we do not store them.</p>
+      <p>This happens <strong>only when you use that feature</strong>. Your other photos, including progress photos, are never sent there. Anthropic does not use data submitted through its API to train its models.</p>
 
       <h3>Google Calendar (coaches only)</h3>
       <p>A coach may optionally connect their own Google Calendar. Access is <strong>read-only</strong>, is used solely to display their events inside the app, and can be disconnected at any time. Clients are not asked for calendar access.</p>
