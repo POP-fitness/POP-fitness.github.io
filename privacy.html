@@ -25,7 +25,7 @@
   <div class="hero">
     <h1><span>Privacy</span><span>Policy</span></h1>
     <p class="summary">What the app stores, who can see it, and how to delete it.</p>
-    <p class="updated">Last updated 28 October 2026</p>
+    <p class="updated">Last updated 10 November 2026</p>
   </div>
 </header>
 
@@ -135,7 +135,9 @@
       <h2><span class="num">4</span>How your coach sees your data</h2>
       <p>This is the part worth reading closely, because it is the point of the app.</p>
       <p>If you sign up using a coach&rsquo;s invite code, or later redeem one, you are linked to that coach. <strong>That coach can see the training data you log</strong> &mdash; your workouts, weight history, nutrition entries, progress photos, and tasks &mdash; so they can coach you on it. A coach can only ever see the data of clients linked to them, and this is enforced on our server for every single request, not merely hidden in the app.</p>
-      <p>No other client can see your data. If you want to end that access, ask your coach to unlink you, or delete your account as described in <a href="#s8">section 8</a>.</p>
+      <p>No other client can see your training data, apart from the friends you accept and the people you train with, who see what&rsquo;s described below. If you want to end your coach&rsquo;s access, ask your coach to unlink you, or delete your account as described in <a href="#s8">section 8</a>.</p>
+      <p><strong>Clients you accept as friends see your name, photo, streak, level, and the workouts you finish after you become friends.</strong> For each of those workouts that means its name, when you finished it, how long it took, the sets you completed with the weights, reps, times and distances you logged, and any personal bests it set. They never see your weight, nutrition, progress photos, notes, your Book of Bests, messages or feedback from your coach, or workouts you finished before you became friends. Anyone you give your friend code or link to, and anyone you send a friend request to or who sends you one, sees only your first name, last initial and profile photo. Nobody can find you without your personal friend code, and you can remove a friend, or reset your code, at any time; removing a friend stops both of you seeing each other&rsquo;s activity straight away. When you give kudos on a friend&rsquo;s workout, that friend sees your name and photo beside it, and other friends of theirs who can see the workout see only how many kudos it has. When you send a friend a high five, they see that it came from you. Removing a friend removes the kudos and high fives between you. Deleting your account removes every friendship and request along with it.</p>
+      <p><strong>Training together shares that one workout as you go</strong> &mdash; when you start or join a session to train with friends, everyone invited to it sees your name and photo, and that can include friends of the person who started it whom you aren&rsquo;t friends with yourself. Everyone who has joined also sees the exercises in that workout and the sets you log in it, while the session is on (three hours at most). Training together never shows anyone your notes or your coach&rsquo;s feedback, and someone in the session who isn&rsquo;t your friend sees no other workout of yours. Your coach sees that you trained a workout with friends, but not who with.</p>
     </section>
 
     <section id="s5">
@@ -143,6 +145,7 @@
       <ul>
         <li>To run the app: showing your history, calculating totals and trends, tracking streaks</li>
         <li>To let your coach review your progress and assign workouts and check-ins</li>
+        <li>To show the friends you accept the workouts you finish, your streak and your level, and the kudos and high fives you send them</li>
         <li>To keep accounts secure and to diagnose faults</li>
       </ul>
       <p>We do not use your information to build advertising profiles, and we do not use your content to train machine-learning models.</p>
@@ -159,6 +162,7 @@
           <tr><td><strong>Supabase</strong></td><td>Account authentication, the database holding your logged data, and encrypted storage for your photos</td></tr>
           <tr><td><strong>Google Cloud</strong></td><td>Hosting for the app&rsquo;s API. If a coach connects their Google Calendar, we read that calendar to display it in the app.</td></tr>
           <tr><td><strong>Anthropic</strong></td><td>Reading nutrition from photos you choose to analyze &mdash; see below</td></tr>
+          <tr><td><strong>Resend</strong></td><td>Sends password-reset emails to your account&rsquo;s address</td></tr>
           <tr><td><strong>Apple</strong></td><td>App distribution through the App Store and TestFlight</td></tr>
         </tbody>
       </table>

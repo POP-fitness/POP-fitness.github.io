@@ -295,3 +295,29 @@ td:first-child { white-space: nowrap; padding-right: 1.5rem; }
 @media (min-width: 44rem) { .facts { grid-template-columns: 1fr 1fr; gap: 3rem; } }
 .facts h2 { margin: 0 0 0.5rem; font: 800 1.6rem/1.1 var(--display); }
 .facts p { margin: 0; }
+
+/* ---------- Add-a-friend page (add-friend.html) ---------- */
+
+.add-friend .home-main { padding-top: 2.5rem; }
+.friend-code {
+  max-width: 34rem; margin: 0 0 3.5rem; padding: 1.75rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--rule); border-bottom: 0.4rem solid var(--violet);
+  border-radius: 4px;
+}
+.friend-code[hidden] { display: none; }
+.friend-code-label { margin: 0; font: 700 1.05rem/1.2 var(--display); text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.friend-code-value {
+  margin: 0.4rem 0 1.4rem;
+  font: 900 clamp(2.75rem, 13vw, 4.5rem)/1 var(--display);
+  letter-spacing: 0.06em; font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.open-app {
+  display: block; text-align: center;
+  padding: 1rem 1.25rem; border-radius: 999px;
+  background: var(--volt); color: var(--ink);
+  font: 900 1.5rem/1 var(--display); text-transform: uppercase; text-decoration: none;
+}
+.open-app:hover { background: var(--cyan); }
+.friend-code-help { margin: 1rem 0 0; color: var(--muted); }

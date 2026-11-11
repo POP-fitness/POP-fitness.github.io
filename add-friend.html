@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add a Friend · PoP Fitness</title>
+<meta name="description" content="Someone shared their PoP Fitness friend code with you.">
+<!-- Each link carries someone's personal code; none of them belong in search results. -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#14121f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,600;1,400&family=Big+Shoulders+Display:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="home add-friend">
+
+<header class="masthead">
+  <div class="topbar">
+    <a class="wordmark" href="index.html"><span class="plate" aria-hidden="true">PoP</span>PoP Fitness</a>
+    <nav aria-label="Legal">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+  <div class="hero">
+    <h1><span>Add a</span><span>friend</span></h1>
+    <p class="summary">Someone shared their PoP Fitness friend code with you.</p>
+  </div>
+</header>
+
+<main class="home-main">
+  <section class="friend-code" id="found" hidden>
+    <p class="friend-code-label">Their friend code</p>
+    <p class="friend-code-value" id="code"></p>
+    <a class="open-app" id="open" href="index.html">Open in PoP Fitness</a>
+    <p class="friend-code-help">Or open the app, tap <strong>Add by code</strong> in the Friends tab, and enter the code above.</p>
+  </section>
+
+  <section class="friend-code" id="missing">
+    <p class="friend-code-label">No code here</p>
+    <p class="friend-code-help">This link doesn&rsquo;t have a friend code in it. Ask your friend to share their link again from the Friends tab in PoP Fitness.</p>
+  </section>
+
+  <div class="facts">
+    <section>
+      <h2>What happens next</h2>
+      <p>They get your friend request in the app, with your first name, last initial and photo. Once they accept, you&rsquo;ll see each other in Friends, and either of you can remove the other at any time.</p>
+    </section>
+    <section>
+      <h2>What friends see</h2>
+      <p>Your first name, last initial and profile photo, your streak and level, the workouts you finish after you become friends, and the kudos and high fives you send them. Your weight, nutrition, photos, and messages or feedback from your coach stay between you and your coach. More in the <a href="privacy.html#s4">Privacy Policy</a>.</p>
+    </section>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p class="motto">Progress over passion</p>
+    <nav aria-label="Site">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Use</a>
+      <a href="mailto:support@progressoverpassion.com">Support</a>
+    </nav>
+    <p>&copy; 2026 Progress Over Passion LLC</p>
+  </div>
+</footer>
+
+<script>
+  // Reads ?code= and shows it the way the app does (K7M2-QX9P). The alphabet
+  // matches the app's: no 0/O, 1/I/L or U. Anything else shows the "No code
+  // here" box instead, which is also what shows with scripts turned off.
+  (function () {
+    var raw = new URLSearchParams(window.location.search).get("code") || "";
+    var code = raw.replace(/[^0-9a-z]/gi, "").toUpperCase();
+    if (!/^[23456789ABCDEFGHJKMNPQRSTVWXYZ]{8}$/.test(code)) return;
+    document.getElementById("code").textContent = code.slice(0, 4) + "-" + code.slice(4);
+    document.getElementById("open").href = "popfitness://add-friend?code=" + code;
+    document.getElementById("found").hidden = false;
+    document.getElementById("missing").hidden = true;
+  })();
+</script>
+</body>
+</html>
