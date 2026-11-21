@@ -281,6 +281,7 @@ td:first-child { white-space: nowrap; padding-right: 1.5rem; }
 
 .doors { display: grid; gap: 1rem; margin: 0 0 3.5rem; }
 @media (min-width: 44rem) { .doors { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 64rem) { .doors { grid-template-columns: repeat(3, 1fr); } }
 .door {
   display: block; padding: 1.5rem 1.5rem 1.4rem;
   background: var(--surface); color: var(--text); text-decoration: none;
@@ -295,6 +296,75 @@ td:first-child { white-space: nowrap; padding-right: 1.5rem; }
 @media (min-width: 44rem) { .facts { grid-template-columns: 1fr 1fr; gap: 3rem; } }
 .facts h2 { margin: 0 0 0.5rem; font: 800 1.6rem/1.1 var(--display); }
 .facts p { margin: 0; }
+
+/* ---------- Features page ---------- */
+
+.features .hero h1 { font-size: clamp(3.6rem, 14.5vw, 9.5rem); }
+
+/* Section jump links, sticky under the masthead like the policy rail. */
+.jump {
+  position: sticky; top: 0; z-index: 10;
+  background: var(--ink); border-top: 1px solid var(--ink-raised);
+}
+.jump-inner {
+  max-width: 72rem; margin: 0 auto; padding: 0.6rem 1rem;
+  display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none;
+}
+.jump-inner::-webkit-scrollbar { display: none; }
+.jump a {
+  flex: none; padding: 0.35rem 0.85rem; border-radius: 999px;
+  border: 1px solid var(--ink-raised); background: var(--ink-raised);
+  color: var(--on-ink); text-decoration: none; font-size: 0.92rem; white-space: nowrap;
+}
+.jump a:hover { border-color: var(--volt); }
+
+.features-main { flex: 1 0 auto; width: 100%; max-width: 72rem; margin: 0 auto; padding: 3rem 1rem 5rem; }
+
+.feature-group { scroll-margin-top: 4rem; }
+.feature-group + .feature-group { margin-top: 4.5rem; }
+
+.group-head { max-width: 40rem; margin: 0 0 1.75rem; }
+.group-head h2 {
+  margin: 0; font: 900 clamp(2.25rem, 7vw, 3.5rem)/0.95 var(--display); text-transform: uppercase;
+}
+.group-head h2::after {
+  content: ""; display: block; width: 3rem; height: 0.4rem; margin-top: 0.6rem; background: var(--volt);
+}
+.group-head p { margin: 0.9rem 0 0; color: var(--muted); font-size: 1.1rem; }
+
+.feature-grid { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 40rem) { .feature-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 64rem) { .feature-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+.feature {
+  display: flex; flex-direction: column;
+  background: var(--surface); border: 1px solid var(--rule); border-radius: 6px; overflow: hidden;
+}
+/* The screenshot sits on ink, so dark app screens read the same on a light page. */
+.feature img {
+  display: block; width: 100%; height: auto; aspect-ratio: 600 / 1304;
+  max-height: 34rem; object-fit: cover; object-position: top;
+  background: var(--ink);
+  border-bottom: 1px solid var(--rule);
+}
+.feature-text { padding: 1.1rem 1.25rem 1.3rem; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
+.feature h3 { margin: 0; font: 800 1.6rem/1.05 var(--display); }
+.feature p { margin: 0; font-size: 0.98rem; line-height: 1.55; }
+.feature .where {
+  margin-top: auto; padding-top: 0.6rem; border-top: 1px solid var(--rule);
+  color: var(--muted); font-size: 0.9rem;
+}
+.feature .where span {
+  display: block; margin-bottom: 0.15rem;
+  font: 700 0.95rem/1.2 var(--display); text-transform: uppercase; letter-spacing: 0.04em; color: var(--num);
+}
+
+/* Three nav links and the wordmark share one line on a phone. */
+.wordmark { white-space: nowrap; }
+@media (max-width: 26rem) {
+  .topbar nav { gap: 0.8rem; font-size: 0.9rem; }
+  .wordmark { font-size: 1.25rem; }
+}
 
 /* ---------- Add-a-friend page (add-friend.html) ---------- */
 
